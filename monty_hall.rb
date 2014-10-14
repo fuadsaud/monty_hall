@@ -2,13 +2,12 @@ MONTY_HALL = ->(door_count) {
   ->(pick_idx) {
     doors = [false] * door_count
 
-    prize_idx = rand(100)
+    prize_idx = rand(door_count)
 
     doors[prize_idx] = true
 
     candidate_idx =
       if pick_idx == prize_idx
-        rand(0..pick_idx)
         loop do
           if (i = rand(door_count)) != pick_idx
             break i
